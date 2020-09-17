@@ -39,8 +39,3 @@ def getCsvFile(nomFich, urlFichier, dossierSave):
             file.write(reponse.content)
         print("Téléchargement terminé de : " + nomFich )
         return 1
-
-
-
-
-#print(metiers)
