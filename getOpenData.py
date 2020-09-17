@@ -15,7 +15,7 @@ def find_data(url, fileType, dossierData):
         nomFichier = data.find("div", {"class" : "card-body"}).find("h4", {"class" : "ellipsis"}).text.replace("\n","")
         if fileType in nomFichier:
             lienFichier = data.find("footer").find("div", {"class" : "resource-card-actions btn-toolbar"}).find_all('a', href=True)[0]['href']        
-            print(nomFichier + " ==> " + lienFichier)
+            #print(nomFichier + " ==> " + lienFichier)
             getCsvFile(nomFichier, lienFichier, dossierData)
             count = count + 1
     print("Nombre de fichiers : " + str(count))
