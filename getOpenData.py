@@ -59,7 +59,7 @@ def mergedata(dirPath):
             df["year"] = temp[1].split('.')[0] #Ajout colonne année    
 
             if nomFichier == '':   
-                nomFichier = temp[0]  
+                nomFichier = temp[0]  git
             elif nomFichier != temp[0]:
                 result = pd.concat(d) #merge des dataframes
                 print("Ajout fichier : " + dirPath + '/' + nomFichier + ".csv")
