@@ -48,7 +48,7 @@ def mergedata(dirPath):
     onlyfiles.sort()
     nomFichier = ''
     d = []
-
+    result = []
     for fichier in onlyfiles:  #lecture de tous les fichiers du repertoire
         if "~lock" not in fichier:
             temp = fichier.split('_')
@@ -59,7 +59,7 @@ def mergedata(dirPath):
             df["year"] = temp[1].split('.')[0] #Ajout colonne année    
 
             if nomFichier == '':   
-                nomFichier = temp[0]  git
+                nomFichier = temp[0]  
             elif nomFichier != temp[0]:
                 result = pd.concat(d) #merge des dataframes
                 print("Ajout fichier : " + dirPath + '/' + nomFichier + ".csv")
@@ -68,6 +68,9 @@ def mergedata(dirPath):
                 nomFichier = temp[0]
 
             d.append(df) #ajout infos dans le dataframe final
+            os.remove(os.path.abspath(dirPath + '/' +fichier)) #suppression des fichiers initiaux
+    result = pd.concat(d)
+    result.to_csv(dirPath + '/' + nomFichier+".csv", index=False)
 
 
 
