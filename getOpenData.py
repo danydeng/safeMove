@@ -55,7 +55,7 @@ def mergedata(dirPath):
                 
             print("chemin: " + dirPath + '/' +fichier)
             
-            df = pd.read_csv(os.path.abspath(dirPath + '/' +fichier), encoding='iso-8859-1', error_bad_lines=False)#) #lecture du contenu du csv
+            df = pd.read_csv(os.path.abspath(dirPath + '/' +fichier), encoding='iso-8859-1', dtype=str, error_bad_lines=False)#) #lecture du contenu du csv
             df["year"] = temp[1].split('.')[0] #Ajout colonne année    
 
             if nomFichier == '':   
