@@ -84,8 +84,10 @@ services:
     ports:
       - 8080:8080
       - 7077:7077
+      - 8880:8888
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
     env_file:
       - ./hadoop-hive.env
     networks:
@@ -170,8 +172,7 @@ services:
           MYSQL_PASSWORD: secret
       networks:
         net_pet:
-          ipv4_address: 172.27.1.14
-
+          ipv4_address: 172.27.1.14      
 networks:
   net_pet:
     ipam:
