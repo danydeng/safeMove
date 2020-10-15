@@ -6,5 +6,5 @@ dossier = "data"
 
 
 getOpenData.find_data(url, extension, dossier)
-getOpenData.mergedata(dossier)
+#getOpenData.mergedata(dossier)
 #print(os.path.abspath("data/caracteristiques_2011.csv"))

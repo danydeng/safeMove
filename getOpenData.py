@@ -42,7 +42,7 @@ def getCsvFile(nomFich, urlFichier, dossierSave):
         print("Téléchargement terminé de : " + nomFich )
         return 1
 
-
+""" 
 def mergedata(dirPath):
     onlyfiles = [f for f in listdir(dirPath) if isfile(join(dirPath, f))]  #récupère la liste des fichiers du repertoire
     onlyfiles.sort()
@@ -70,7 +70,7 @@ def mergedata(dirPath):
             d.append(df) #ajout infos dans le dataframe final
             os.remove(os.path.abspath(dirPath + '/' +fichier)) #suppression des fichiers initiaux
     result = pd.concat(d)
-    result.to_csv(dirPath + '/' + nomFichier+".csv", index=False)
+    result.to_csv(dirPath + '/' + nomFichier+".csv", index=False) """
 
 
 
