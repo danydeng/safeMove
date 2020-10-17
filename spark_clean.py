@@ -15,10 +15,10 @@ sparkSession =SparkSession.builder.master("local[*]").appName("appName")\
     .enableHiveSupport().getOrCreate()
 
 # importer les fichiers brut dans des dataFrame
-vehicules= pd.read_csv('data/vehicules.csv',dtype=str)
-usagers=pd.read_csv('data/usagers.csv',dtype=str)
-crtrtic=pd.read_csv('data/caracteristiques.csv',dtype=str)
-lieux=pd.read_csv('data/lieux.csv',dtype=str)
+vehicules= pd.read_csv('/data/vehicules.csv',dtype=str)
+usagers=pd.read_csv('/data/usagers.csv',dtype=str)
+crtrtic=pd.read_csv('/data/caracteristiques.csv',dtype=str)
+lieux=pd.read_csv('/data/lieux.csv',dtype=str)
 
 ################################## DATA VEHICULES ################################################################
 # definition type des variables
