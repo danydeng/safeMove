@@ -10,7 +10,7 @@ sparkSession =SparkSession.builder.master("local[*]").appName("appName")\
 
 sqlContext = HiveContext(sparkSession)
 requete = ""
-db_name = "accidents"
+db_name = "pred_accidents"
 ############### création de la BD ################################
 sqlContext.sql("CREATE DATABASE IF NOT EXISTS " + db_name)
 

@@ -4,7 +4,7 @@ from os.path import isfile, join
 import pandas as pd
 import glob
 
-os.chdir("data") #deplacement dans le repertoire data
+os.chdir("/data") #deplacement dans le repertoire data
 extension = 'csv'
 
 def mergeCarc( fich, extension):  #merge des fichiers caracteristiques
@@ -38,4 +38,4 @@ mergeData('lieux',extension)
 mergeData('usagers',extension)
 mergeCarc('caracteristiques',extension)
 
-os.chdir("..")
+#os.chdir("..")

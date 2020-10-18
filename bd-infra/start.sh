@@ -18,6 +18,8 @@ docker-compose exec spark-master bash -c "pip install glob"
 
 docker-compose exec spark-master bash -c "pip install hdfs"
 
+docker-compose exec spark-master bash -c "pip install bs4"
+
 docker-compose exec spark-master bash -c "cp conf/spark-defaults.conf.template conf/spark-defaults.conf"
 
 docker-compose exec spark-master bash -c 'echo "spark.driver.extraClassPath /data/jar_files/*" >> conf/spark-defaults.conf'
@@ -31,3 +33,7 @@ sudo mkdir /filRouge/spark/master/clean
 sudo cp ../spark_Hive.py /filRouge/spark/master/script_spark
 
 sudo cp ../spark_clean.py /filRouge/spark/master/script_spark
+sudo cp ../mergefiles.py /filRouge/spark/master/script_spark
+sudo cp ../main.py /filRouge/spark/master/script_spark
+sudo cp ../getData.sh /filRouge/spark/master/script_spark
+sudo cp ../getOpenData.py /filRouge/spark/master/script_spark
