@@ -8,6 +8,7 @@ os.chdir("data") #deplacement dans le repertoire data
 extension = 'csv'
 
 def mergeCarc( fich, extension):  #merge des fichiers caracteristiques
+    out = fich + '.'+ extension
     #récupère l'ensemble des fichiers selon le paramêtre et l'extension donnée
     all_carac = [i for i in glob.glob(fich+'*.{}'.format(extension))]
     all_carac.sort()  
@@ -15,20 +16,22 @@ def mergeCarc( fich, extension):  #merge des fichiers caracteristiques
     combined_csv = pd.concat([pd.read_csv(f, encoding='iso-8859-1', dtype=str, error_bad_lines=False) for f in all_carac if f != 'caracteristiques_2009.csv' ])
     #export to csv
     combined_csv = pd.concat([combined_csv, pd.read_csv('caracteristiques_2009.csv', encoding='iso-8859-1', dtype=str, error_bad_lines=False, sep='\t')])
-    combined_csv.to_csv( fich+".csv", index=False, encoding='utf-8-sig')    
-    for i in all_carac: 
-        os.remove(i) 
+    combined_csv.to_csv( out, index=False, encoding='utf-8-sig')    
+    for i in all_carac:         
+        if i != out:
+            os.remove(i) 
 
 def mergeData( fich, extension):  #merge des fichiers caracteristiques
-    
+    out = fich +'.'+ extension
     all_carac = [i for i in glob.glob(fich+'*.{}'.format(extension))]
     all_carac.sort()
     #combine all files in the list
-    combined_csv = pd.concat([pd.read_csv(f, encoding='iso-8859-1', dtype=str, error_bad_lines=False) for f in all_carac ])
+    combined_csv = pd.concat([pd.read_csv(f, encoding='iso-8859-1', dtype=str, error_bad_lines=False) for f in all_carac])
     #export to csv
-    combined_csv.to_csv( fich+".csv", index=False, encoding='utf-8-sig')    
+    combined_csv.to_csv( out, index=False, encoding='utf-8-sig')    
     for i in all_carac: 
-        os.remove(i)
+        if i != out:
+            os.remove(i)
 
 mergeData('vehicules',extension)
 mergeData('lieux',extension)
