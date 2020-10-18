@@ -173,6 +173,5 @@ sqlContext.sql('LOAD DATA LOCAL INPATH "/data/clean/vehicules_clean.csv" OVERWRI
 sqlContext.sql('LOAD DATA LOCAL INPATH "/data/clean/caracteristiques_clean.csv" OVERWRITE INTO TABLE caracteristiques_tab')
 sqlContext.sql('LOAD DATA LOCAL INPATH "/data/clean/lieux_clean.csv" OVERWRITE INTO TABLE lieux_tab')
 
-
 df_load = sqlContext.sql( "select * from caracteristiques_tab limit 10")
 df_load.show()
