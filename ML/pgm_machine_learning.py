@@ -475,8 +475,6 @@ print("Indicateur de performance")
 print("taux de reconnaissance")
 print("Accuracy (échantillon test): " + str(metrics.accuracy_score(y_test,pred)))
 
-
-
 #taux d'erreur --> 14987+1653/total
 print("taux d'erreur " + str(1.0 - metrics.accuracy_score(y_test,pred)))
 
