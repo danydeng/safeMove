@@ -19,6 +19,7 @@ docker-compose exec spark-master bash -c "pip install glob"
 docker-compose exec spark-master bash -c "pip install hdfs"
 
 docker-compose exec spark-master bash -c "pip install bs4"
+docker-compose exec spark-master bash -c "pip install pyspark"
 
 docker-compose exec spark-master bash -c "pip install scipy"
 
