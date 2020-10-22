@@ -116,44 +116,6 @@ services:
       net_pet:
         ipv4_address: 172.27.1.11
 
-  zeppelin:
-    image: openkbs/docker-spark-bde2020-zeppelin
-    container_name: zeppelin
-    environment:
-      CORE_CONF_fs_defaultFS: "hdfs://namenode:8020"
-      SPARK_MASTER: "spark://spark-master:7077"
-      MASTER: "spark://spark-master:7077"
-      SPARK_MASTER_URL: spark://spark-master:7077
-      ZEPPELIN_PORT: 8080
-      ZEPPELIN_JAVA_OPTS:
-        -Dspark.driver.memory=1g
-        -Dspark.executor.memory=2g
-    ports:
-      - 19090:8080
-    env_file:
-      - ./hadoop-hive.env
-    volumes:
-      - /filRouge/simple-demo/zeppelin/data:/usr/lib/zeppelin/data:rw
-      - /filRouge/simple-demo/zeppelin/notebook:/usr/lib/zeppelin/notebook:rw
-    command: /usr/lib/zeppelin/bin/zeppelin.sh
-    networks:
-      net_pet:
-        ipv4_address: 172.27.1.12
-
-  hue:
-      image: gethue/hue:latest
-      hostname: hue
-      container_name: hue
-      dns: 8.8.8.8
-      ports:
-      - "8888:8888"
-      volumes:
-        - /filRouge/./hue-overrides.ini:/usnr/share/hue/desktop/conf/z-hue.ini
-      depends_on:
-      - "database"
-      networks:
-        net_pet:
-          ipv4_address: 172.27.1.13
   
   database:
       image: mysql:5.7
